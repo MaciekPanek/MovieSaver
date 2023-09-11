@@ -40,7 +40,7 @@ export default function WatchlistDetails({ onClose, movieID }) {
 
   return (
     <ListTemplate movieDetails={movieDetails} ref={ref}>
-      <div className=" justify-between flex">
+      <div className=" justify-between  min-[550px]:flex-row flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3">
         <div className="flex flex-col  gap-2">
           <div className="flex items-center gap-2">
             <span className="text-stone-700 italic">Rate</span>
@@ -55,7 +55,7 @@ export default function WatchlistDetails({ onClose, movieID }) {
             ""
           )}
         </div>
-        <div className="flex items-end gap-3">
+        <div className="flex items-end justify-end  md:justify-between  lg:justify-normal gap-3">
           <Button onClick={handleDelete}>Delete from watchlist</Button>
 
           <Button onClick={onClose}>Close</Button>

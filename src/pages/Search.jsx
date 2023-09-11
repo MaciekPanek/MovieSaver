@@ -19,14 +19,14 @@ function Search() {
   }, [movieTitle, refetch]);
 
   return (
-    <div className="bg-stone-900 w-full min-h-full  flex items-center justify-center">
-      <div className="bg-stone-800 w-1/2 min-h-[30rem]   my-20 rounded-3xl flex flex-col items-center ">
-        <div className="w-full h-28 bg-stone-600 rounded-t-3xl flex items-center justify-center border-b-[3px] border-b-yellow-500">
+    <main className="bg-stone-900 w-full min-h-full  sm:flex items-center sm:justify-center">
+      <div className="bg-stone-800 w-full md:w-3/4 2xl:w-1/2  max-[650px]:h-screen sm:min-h-[30rem]  md:my-20 md:rounded-3xl flex flex-col items-center ">
+        <div className="w-full h-20 md:h-28 bg-stone-600 md:rounded-t-3xl flex items-center justify-center border-b-[3px] border-b-yellow-500">
           <SearchInput onChange={handleChange} />
         </div>
         {isLoading ? <Spinner /> : <MovieList movies={movies?.Search || []} />}
       </div>
-    </div>
+    </main>
   );
 }
 

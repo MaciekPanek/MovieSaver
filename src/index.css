@@ -39,7 +39,7 @@
 
 .active {
   background-color: #78716c;
-  border-bottom: solid 5px #eab308;
+  border-bottom: solid 3px #eab308;
 }
 
 @keyframes animate {
