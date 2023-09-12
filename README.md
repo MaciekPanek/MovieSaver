@@ -4,8 +4,8 @@ Simple movie website that allows you to search movies, add them to your watchlis
 
 ![Alt text](/public/MovieSaverSS.png?raw=true)
 
-Library: ReactJs
-Deployment: Vercel
-Styling: Tailwind CSS
+- Library: [ReactJs](https://react.dev/)
+- Deployment: [Vercel](https://vercel.com/)
+- Styling: [Tailwind CSS](https://tailwindcss.com/)
 
-Other Technologies: React Router, React Query
+**Other Technologies:** _React Router, React Query_
