@@ -1,4 +1,11 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
 import Homepage from "./pages/Homepage";
 import Search from "./pages/Search";
@@ -17,39 +24,47 @@ const queryClient = new QueryClient({
   },
 });
 
-const router = createBrowserRouter([
-  {
-    path: "*",
-    element: <AppLayout />,
-    children: [
-      {
-        path: "/",
-        element: <Homepage />,
-      },
-      {
-        path: "/search",
-        element: <Search />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/watchlist",
-        element: <MoviesToWatch />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/watched",
-        element: <WatchedMovies />,
-        errorElement: <ErrorPage />,
-      },
-    ],
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     element: <AppLayout />,
+//     children: [
+//       {
+//         path: "/",
+//         element: <Homepage />,
+//       },
+//       {
+//         path: "/search",
+//         element: <Search />,
+//         errorElement: <ErrorPage />,
+//       },
+//       {
+//         path: "/watchlist",
+//         element: <MoviesToWatch />,
+//         errorElement: <ErrorPage />,
+//       },
+//       {
+//         path: "/watched",
+//         element: <WatchedMovies />,
+//         errorElement: <ErrorPage />,
+//       },
+//     ],
+//   },
+// ]);
 
 function App() {
   return (
     <MovieDetailsProvider>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />;
+        <HashRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Homepage />} />
+              <Route path="search" element={<Search />} />
+              <Route path="watchlist" element={<MoviesToWatch />} />
+              <Route path="watched" element={<WatchedMovies />} />
+            </Route>
+          </Routes>
+        </HashRouter>
       </QueryClientProvider>
     </MovieDetailsProvider>
   );
