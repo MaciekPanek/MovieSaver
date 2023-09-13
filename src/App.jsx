@@ -1,12 +1,16 @@
-import { Route, RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
 import Homepage from "./pages/Homepage";
 import Search from "./pages/Search";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MovieDetailsProvider } from "./context/MovieListContext";
 import MoviesToWatch from "./pages/MoviesToWatch";
 import WatchedMovies from "./pages/WatchedMovies";
-import NotFound from "./NotFound";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MovieDetailsProvider } from "./context/MovieListContext";
+import {
+  Navigate,
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,12 +50,11 @@ function App() {
     <MovieDetailsProvider>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/search" component={Search} />
-          <Route path="/watchlist" component={MoviesToWatch} />
-          <Route path="/watched" component={WatchedMovies} />
-          {/* Add a catch-all route for 404 errors */}
-          <Route component={NotFound} />
+          <Route path="/" component={Homepage} />
+          <Route path="search" component={Search} />
+          <Route path="watchlist" component={MoviesToWatch} />
+          <Route path="watched" component={WatchedMovies} />
+          <Route path="*" element={<Navigate to="/" />} />
         </RouterProvider>
       </QueryClientProvider>
     </MovieDetailsProvider>
