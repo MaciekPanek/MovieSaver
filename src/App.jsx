@@ -1,3 +1,11 @@
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
 import Homepage from "./pages/Homepage";
 import Search from "./pages/Search";
@@ -5,12 +13,6 @@ import MoviesToWatch from "./pages/MoviesToWatch";
 import WatchedMovies from "./pages/WatchedMovies";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MovieDetailsProvider } from "./context/MovieListContext";
-import {
-  Navigate,
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 
 const queryClient = new QueryClient({
@@ -22,44 +24,47 @@ const queryClient = new QueryClient({
   },
 });
 
-const router = createBrowserRouter([
-  {
-    element: <AppLayout />,
-    children: [
-      {
-        path: "/",
-        element: <Homepage />,
-      },
-      {
-        path: "/search",
-        element: <Search />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/watchlist",
-        element: <MoviesToWatch />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/watched",
-        element: <WatchedMovies />,
-        errorElement: <ErrorPage />,
-      },
-    ],
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     element: <AppLayout />,
+//     children: [
+//       {
+//         path: "/",
+//         element: <Homepage />,
+//       },
+//       {
+//         path: "/search",
+//         element: <Search />,
+//         errorElement: <ErrorPage />,
+//       },
+//       {
+//         path: "/watchlist",
+//         element: <MoviesToWatch />,
+//         errorElement: <ErrorPage />,
+//       },
+//       {
+//         path: "/watched",
+//         element: <WatchedMovies />,
+//         errorElement: <ErrorPage />,
+//       },
+//     ],
+//   },
+// ]);
 
 function App() {
   return (
     <MovieDetailsProvider>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router}>
-          <Route path="/" component={Homepage} />
-          <Route path="search" component={Search} />
-          <Route path="watchlist" component={MoviesToWatch} />
-          <Route path="watched" component={WatchedMovies} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </RouterProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="/" />} />
+              <Route path="search" element={<Search />} />
+              <Route path="watchlist" element={<MoviesToWatch />} />
+              <Route path="watched" element={<WatchedMovies />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </QueryClientProvider>
     </MovieDetailsProvider>
   );
