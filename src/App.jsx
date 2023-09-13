@@ -11,6 +11,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,14 +33,17 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+        errorElement: <ErrorPage />,
       },
       {
         path: "/watchlist",
         element: <MoviesToWatch />,
+        errorElement: <ErrorPage />,
       },
       {
         path: "/watched",
         element: <WatchedMovies />,
+        errorElement: <ErrorPage />,
       },
     ],
   },
