@@ -13,7 +13,7 @@ function Navigation() {
               : null} text-stone-300 text-xl md:text-2xl h-full flex items-center  justify-center px-8 gap-2 border-b-[1px] border-b-yellow-300 sm:border-none `}
         >
           {" "}
-          <img src="../../../public/favicon-32x32.png" alt="logo" />
+          <img src="/favicon-32x32.png" alt="logo" />
           MovieSaver
         </NavLink>
       </div>
