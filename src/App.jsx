@@ -58,7 +58,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<AppLayout />}>
-              <Route index element={<Navigate replace to="/" />} />
+              <Route path="/" element={<Homepage />} />
               <Route path="search" element={<Search />} />
               <Route path="watchlist" element={<MoviesToWatch />} />
               <Route path="watched" element={<WatchedMovies />} />
