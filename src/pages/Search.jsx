@@ -20,7 +20,7 @@ function Search() {
 
   return (
     <main className="bg-stone-900 w-full min-h-full  sm:flex items-center sm:justify-center">
-      <div className="bg-stone-800 h-full w-full md:w-3/4 2xl:w-1/2   sm:min-h-[30rem]  md:my-20 md:rounded-3xl flex flex-col items-center ">
+      <div className="bg-stone-800 h-full w-full md:w-3/4 2xl:w-1/2  sm:min-h-[30rem]  md:my-20 md:rounded-3xl flex flex-col items-center ">
         <div className="w-full h-20 md:h-28 bg-stone-600 md:rounded-t-3xl flex items-center justify-center border-b-[3px] border-b-yellow-500">
           <SearchInput onChange={handleChange} />
         </div>

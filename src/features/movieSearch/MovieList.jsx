@@ -4,7 +4,7 @@ import MovieDetailsModal from "./MovieDetailsModal";
 function MovieList({ movies }) {
   if (movies.length === 0)
     return (
-      <span className="text-3xl text-stone-400 my-auto text-center">
+      <span className="  text-3xl text-stone-400 max-[640px]:absolute top-[50%] sm:my-auto text-center">
         Start searching your desired movie or Tvs 👆
       </span>
     );
